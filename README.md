@@ -394,14 +394,14 @@ Lumina-AI/
 
 ### 8.1 Prerequisites
 
-- **Node.js** v18+ — [Download from nodejs.org](https://nodejs.org/)
-- **npm** — bundled with Node.js
-- A **Supabase** account — [supabase.com](https://supabase.com) (free tier works)
-- A **Groq** API key — [console.groq.com](https://console.groq.com) (free tier works)
+- **Node.js** v18+ 
+- **npm** 
+- A **Supabase** account 
+- A **Groq** API key 
 
 ### 8.2 Database Setup
 
-1. Create a new project on [Supabase](https://supabase.com)
+1. Create a new project on Supabase
 2. Go to **SQL Editor** in your Supabase dashboard
 3. Copy and paste the entire contents of `supabase-schema.sql`
 4. Click **Run** to create all tables
