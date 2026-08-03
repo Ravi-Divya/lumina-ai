@@ -399,41 +399,9 @@ Lumina-AI/
 - A **Supabase** account 
 - A **Groq** API key 
 
-### 8.2 Database Setup
-
-1. Create a new project on Supabase
-2. Go to **SQL Editor** in your Supabase dashboard
-3. Copy and paste the entire contents of `supabase-schema.sql`
-4. Click **Run** to create all tables
-
-### 8.3 Environment Variables
-
-Copy `.env.example` to `.env` and fill in your values:
-
-```env
-# Server port
-PORT=5000
-
-# Supabase (Project Settings → API)
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
-
-# Backend proxy URL
-VITE_AI_PROXY_URL=http://localhost:5000
-
-# Server-side (never exposed to frontend)
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-SUPABASE_JWT_SECRET=your-jwt-secret
-
-# Groq AI API key (console.groq.com)
-GROQ_API_KEY=your-groq-api-key
-
-# Allowed frontend origin
-CLIENT_URL=http://localhost:5173
 ```
 
-### 8.4 Install Dependencies
+### 8.2 Install Dependencies
 
 You need to install packages for **both** the client and the server separately.
 
@@ -453,71 +421,15 @@ npm install
 
 ---
 
-### 8.5 Running Locally
+## 9. Security
 
-You need **two separate terminal windows** — one for the frontend and one for the backend.
-
-**Terminal 1 — Start the backend server:**
-```bash
-cd server
-npm run dev
-# ✅ Server running at http://localhost:5000
-```
-
-**Terminal 2 — Start the frontend:**
-```bash
-cd client
-npm run dev
-# ✅ Frontend running at http://localhost:5173
-```
-
-> 💡 **Tip:** If you get `port already in use`, Vite will automatically try the next port (5174, 5175, etc.). Just open whichever URL it shows.
-
-Then open your browser at **http://localhost:5173**
-
-### 8.6 First-Time Setup
-
-After logging in for the first time:
-1. Go to `/api/db/setup` to seed the initial workspace and demo data
-2. Log in with your Supabase user credentials
-3. The system will automatically detect your role from the database
-
----
-
-## 9. Deployment
-
-The application is configured for one-click deployment to **Render.com**.
-
-### 9.1 Render.com (Production)
-
-The `render.yaml` file defines the deployment:
-
-```yaml
-# The Node.js server serves both the API and the built React frontend
-Build command: cd client && npm install && npm run build
-Start command: cd server && node server.js
-```
-
-In production, the Express server:
-1. Serves the compiled React SPA from `client/dist/`
-2. Handles all API routes under `/api/*`
-3. Returns `index.html` for all other routes (client-side routing)
-
-### 9.2 Environment Variables on Render
-
-Set all variables from `.env.example` in your Render service's **Environment** tab.
-
----
-
-## 10. Security
-
-### 10.1 Authentication
+### 9.1 Authentication
 
 - **Supabase Auth** handles user registration, login, and JWT issuance
 - **JWT Verification** — all backend routes verify the Supabase JWT before processing
 - **Row-Level Security (RLS)** — Supabase enforces per-user data access at the database level
 
-### 10.2 API Security
+### 9.2 API Security
 
 - **CORS** — Strict allowlist of origins (localhost ports + Render.com domain)
 - **File size limits** — 50 MB JSON body limit, 100 MB video upload limit
@@ -525,7 +437,7 @@ Set all variables from `.env.example` in your Render service's **Environment** t
 
 ---
 
-## 11. Conclusion
+## 10. Conclusion
 
 Lumina AI demonstrates how modern web technologies and large language models can be combined to build a genuinely useful educational platform. Key achievements include:
 
