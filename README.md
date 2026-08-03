@@ -539,13 +539,4 @@ Lumina AI demonstrates how modern web technologies and large language models can
 
 ---
 
-## About
 
-**Lumina AI** — AI-Powered Learning Platform  
-Built with React 19, Node.js, Groq AI, and Supabase  
-Designed as a college capstone project
-
-**Languages:** JavaScript (React + Node.js)  
-**AI Models:** Groq LLaMA 3.3 70B · Groq Whisper Large V3  
-**Database:** Supabase (PostgreSQL)  
-**Deployment:** Render.com
